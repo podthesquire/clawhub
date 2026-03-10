@@ -187,6 +187,7 @@ export async function cmdSync(opts: GlobalOpts, options: SyncOptions, inputAllow
       changelog,
       tags,
       forkOf,
+      acceptLicenseTerms: options.acceptLicenseTerms,
     })
   }
 

@@ -9,6 +9,7 @@ export type SyncOptions = {
   changelog?: string
   tags?: string
   concurrency?: number
+  acceptLicenseTerms?: boolean
 }
 
 export type Candidate = SkillFolder & {

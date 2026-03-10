@@ -278,6 +278,7 @@ program
   .option('--fork-of <slug[@version]>', 'Mark as a fork of an existing skill')
   .option('--changelog <text>', 'Changelog text')
   .option('--tags <tags>', 'Comma-separated tags', 'latest')
+  .option('--accept-license-terms', 'Accept the license terms')
   .action(async (folder, options) => {
     const opts = await resolveGlobalOpts()
     await cmdPublish(opts, folder, options)
@@ -432,6 +433,7 @@ program
   .option('--changelog <text>', 'Changelog to use for updates (non-interactive)')
   .option('--tags <tags>', 'Comma-separated tags', 'latest')
   .option('--concurrency <n>', 'Concurrent registry checks (default: 4)', '4')
+  .option('--accept-license-terms', 'Accept the license terms')
   .action(async (options) => {
     const opts = await resolveGlobalOpts()
     const bump = String(options.bump ?? 'patch') as 'patch' | 'minor' | 'major'
@@ -449,6 +451,7 @@ program
         changelog: options.changelog,
         tags: options.tags,
         concurrency,
+        acceptLicenseTerms: options.acceptLicenseTerms,
       },
       isInputAllowed(),
     )

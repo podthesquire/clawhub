@@ -20,6 +20,7 @@ export async function cmdPublish(
     changelog?: string
     tags?: string
     forkOf?: string
+    acceptLicenseTerms?: boolean
   },
 ) {
   const folder = folderArg ? resolve(opts.workdir, folderArg) : null
@@ -68,7 +69,7 @@ export async function cmdPublish(
         displayName,
         version,
         changelog,
-        acceptLicenseTerms: true,
+        acceptLicenseTerms: options.acceptLicenseTerms === true,
         tags,
         ...(forkOf ? { forkOf } : {}),
       }),
